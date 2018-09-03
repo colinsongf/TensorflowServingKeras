@@ -1,0 +1,56 @@
+docker run -p 8501:8501 --mount type=bind, source=/C/Users/i076007/Desktop/tfserving/serving/tensorflow_serving/servables/tensorflow/testdata/saved_model_half_plus_two_cpu, target=/models/half_plus_two  -e MODEL_NAME=half_plus_two -t tensorflow/serving &
+
+
+docker run -p 8501:8501 --mount type=bind, -t tensorflow/serving
+
+
+
+docker run -p 8501:8501 \
+  --mount type=bind,\
+  source=/C/Users/i076007/Desktop/tfserving/serving/tensorflow_serving/servables/tensorflow/testdata/saved_model_half_plus_two_cpu,\
+  target=/models/half_plus_two \
+  -e MODEL_NAME=half_plus_two -t tensorflow/serving &
+
+
+docker run -p 8501:8501 source=C:/Users/i076007/Desktop/tfserving/serving/tensorflow_serving/servables/tensorflow/testdata/saved_model_half_plus_two_cpu, target=/models/half_plus_two  -e MODEL_NAME=half_plus_two -t tensorflow/serving &
+
+
+
+
+docker run -p 8501:8501 --mount type=bind,source=C:/Users/i076007/Desktop/tfserving/serving/tensorflow_serving/servables/tensorflow/testdata/saved_model_half_plus_two_cpu,target=/models/half_plus_two -e MODEL_NAME=half_plus_two -t tensorflow/serving &
+
+
+
+
+docker run -p 8502:8502 -v C:/Users/i076007/Desktop/tfserving/serving/tensorflow_serving/servables/tensorflow/testdata/saved_model_half_plus_two_cpu:/models/half_plus_two -e MODEL_NAME=half_plus_two -t tensorflow/serving &
+
+
+
+curl -d '{"instances": [1.0, 2.0, 5.0]}' -X POST http://localhost:8501/v1/models/half_plus_two:predict
+
+
+
+docker run --rm -v c:/Users/i076007/Desktop/tfserving/serving/tensorflow_serving/servables/tensorflow/testdata/saved_model_half_plus_two_cpu/00000123:/data alpine ls /data
+
+
+
+docker stop $(docker ps -a -q)
+
+
+
+
+docker run -p 8502:8502 -v C:/Users/i076007/Desktop/tfserving/serving/models/mnist/:/models/mnist -e MODEL_NAME=mnist -t tensorflow/serving &
+
+
+
+
+docker run -p 8500:8500 --mount type=bind,source=$(pwd)/models/mnist/,target=/models/mnist -e MODEL_NAME=mnist -t tensorflow/serving &
+
+
+
+
+docker run -p 8501:8501 --mount type=bind,source=C:/Users/i076007/Desktop/tfserving/serving/tensorflow_serving/servables/tensorflow/testdata/saved_model_half_plus_two_cpu,target=/models/half_plus_two -e MODEL_NAME=half_plus_two -t tensorflow/serving
+
+docker run -p 8501:8501 --mount type=bind,source=C:/Users/i076007/Desktop/ml/TensorflowServingKeras/captcha_servable,target=/models/captcha -e MODEL_NAME=captcha -t tensorflow/serving
+
+curl -d '{"instances": [1.0, 2.0, 5.0]}' -X POST http://localhost:8501/v1/models/captcha:predict
